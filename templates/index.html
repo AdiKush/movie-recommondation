@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title> Movie Recommendation </title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+
+
+<style>
+  #image{
+    /* background-color:#000; */
+  background-image: url("https://cutewallpaper.org/21/powerpoint-background-movie-theme/Free-download-Movie-Theater-Background-Kinepolis-cinema-hall-.jpg");
+  background-position: cover;
+  }
+</style>
+
+
+
+
+</head>
+
+<body id="image">
+ <div class="login">
+  <h1>Movie Recommendation</h1>
+  
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="movie" placeholder="movie name" required="required" />
+      
+        <button type="submit" class="btn btn-primary btn-block btn-large">Search</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
